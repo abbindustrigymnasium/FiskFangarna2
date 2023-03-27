@@ -7,7 +7,7 @@ using UnityEngine;
 public class CatchFish : MonoBehaviour
 {
     private Camera camera;
-
+    private Collectable collectable;
     void Start()
     {
         camera = Camera.main;
@@ -29,6 +29,7 @@ public class CatchFish : MonoBehaviour
             {
                 Debug.Log($"{hit.collider.name} Detected",
                     hit.collider.gameObject);
+                collectable.Collect();
             }
         }
     }

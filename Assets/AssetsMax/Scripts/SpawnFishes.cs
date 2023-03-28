@@ -6,54 +6,110 @@ using UnityEngine.XR.ARSubsystems;
 
 public class SpawnFishes : MonoBehaviour
 {
+    public BucketSpawnScript bucket = new BucketSpawnScript();
     [SerializeField] List<GameObject> fishes = new List<GameObject>();
+    List<GameObject> fishesInGame;
+    [SerializeField] Camera mainCamera;
     public WorldBuilder worldBuilder;
     Vector3 spawnPosition;
-    [SerializeField] float spawnRate;
     public float forceAmount = 5f;
+    [SerializeField] float destroyTime = 5f;
+    [SerializeField] float upForce = 2f;
+    [SerializeField] float difficultyAdjuster = 0.25f;
+
+    public float bucketSpawnCount = 0f;
+    float elapsedTime;
+    int secondsElapsed;
+    public float fishScore = 0f;
+    bool isPlaying;
     // Start is called before the first frame update
 
-    public SpawnFishes(WorldBuilder wb)
-    {
-        worldBuilder = wb;
-    }
+    public SpawnFishes(WorldBuilder wb) => worldBuilder = wb;
     void Start()
     {
-        
+        fishesInGame= new List<GameObject>();
+        isPlaying = false;
+        fishScore = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isPlaying == true)
+        {
+            elapsedTime += Time.deltaTime;
+            if (elapsedTime >= 1)
+            {
+                secondsElapsed++;
+                elapsedTime = 0;
+                //Debug.Log(secondsElapsed);
+                if(secondsElapsed % 6 == 0)
+                {
+                    IncreaseDifficulty();
+                    
+                }
+                
+            }
+        }
+        
     }
     public void GenerateSpawnLocation()
     {
         
-        Debug.Log("Rad 30");
-        float minX = worldBuilder.planeCenter.x - worldBuilder.plane.size.x / 1.5f;
-        float maxX = worldBuilder.planeCenter.x + worldBuilder.plane.size.x / 1.5f;
-        Debug.Log("Rad 33");
+        float minX = worldBuilder.planeCenter.x - 5;
+        float maxX = worldBuilder.planeCenter.x + 5;
+        
         float randomX = Random.Range(minX, maxX);
-        Debug.Log("Rad 35");
+        
         spawnPosition = new Vector3(randomX, worldBuilder.planeCenter.y, worldBuilder.planeCenter.z);
-        Debug.Log("I GenerateSpaw");
+        if (bucketSpawnCount == 0f)
+        {
+            bucket.SetSpawnLocation();
+        }
+        
         SpawnFish();
+        bucketSpawnCount++;
             
 
     }
 
     public void SpawnFish()
     {
+        isPlaying = true;
         int randomFishId = Random.Range(0,fishes.Count);
         GameObject fish = Instantiate(fishes[randomFishId], spawnPosition + Vector3.up, Quaternion.identity);
-        fish.transform.Rotate(0, 0, 90);
-        fish.transform.rotation = Quaternion.Euler(45f, 0f, 0f);
+        fishesInGame.Add(fish);
+        Debug.Log("Kamera transform " + mainCamera.transform);
+        fish.transform.LookAt(mainCamera.transform);
+        //fish.transform.Rotate(0,-mainCamera.transform.rotation.y, 0);
+        //fish.transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward, mainCamera.transform.rotation * Vector3.up);
         Rigidbody fishRb = fish.GetComponent<Rigidbody>();
         if(fishRb != null)
         {
-            fishRb.AddForce(-fish.transform.forward * forceAmount, ForceMode.Impulse);
+            fishRb.AddForce(-mainCamera.transform.forward * forceAmount, ForceMode.Impulse);
+            fishRb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
         }
-        Debug.Log("Skapar obejekt");
+
+        Invoke("DestroyFish", destroyTime);
+        
+    }
+
+    void DestroyFish()
+    {
+        
+        Destroy(fishesInGame[0]);
+        fishesInGame.RemoveAt(0);
+        fishScore++;
+        bucket.changeBucketPrefab();
+    }
+
+    void IncreaseDifficulty()
+    {
+            Debug.Log("Increasing difficulty");
+            Debug.Log("Old spawn rate: " + worldBuilder.spawnRate);
+            worldBuilder.spawnRate = 0.2f;
+            Debug.Log("New spawn rate: " + worldBuilder.spawnRate);
+        
     }
 
     

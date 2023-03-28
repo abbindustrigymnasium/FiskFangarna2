@@ -18,27 +18,35 @@ public class WorldBuilder : MonoBehaviour
     GameObject car;
     public ARPlane plane;
     public Vector3 planeCenter;
-
+    [SerializeField] float spawnDelayTime = 5f;
+    public float spawnRate;
     List<ARRaycastHit> raycastHits = new List<ARRaycastHit>();
 
     public WorldBuilder()
     {
         spawnFishes = new SpawnFishes(this);
     }
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {
         if (raycastManager.Raycast(new Vector2(Screen.height/2, Screen.width/2), raycastHits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinBounds))
         {
+            //Debug.Log("Storlek x: " + plane.size.x + " Storlek y: " + plane.size.y);
+            //Debug.Log("Storlek som den ska vara är > 3, och mindre än 2")
+
             plane = planeManager.GetPlane(raycastHits[0].trackableId);
-            if (plane.size.y < 2 && plane.size.x > 3)
+            if (plane.size.y > 1 && plane.size.x > 1)
             {
                 planeCenter = plane.center;
                 Debug.Log(planeCenter);
                 CreateGameSpace(plane);
-                enabled = true;
-                spawnFishes.InvokeRepeating("GenerateSpawnLocation", 5f, 3f);
-                Debug.Log("Rad 33 i Wordbuilder");
+                enabled = false;
+                spawnFishes.InvokeRepeating("GenerateSpawnLocation", spawnDelayTime, spawnRate);
+                Debug.Log("HITTAT PLANE");
                 planeManager.enabled =false ;
                
             }
@@ -48,26 +56,5 @@ public class WorldBuilder : MonoBehaviour
     void CreateGameSpace(ARPlane plane)
     {
         Instantiate(floorPrefab, new Vector3(plane.transform.position.x,0,plane.transform.position.z), Quaternion.identity);
-    }
-    
-    /*void GenerateSpawnerLocations()
-    {
-        Vector3 planecenter = plane.center;
-        float minX = planecenter.x - plane.size.x / 2;
-        float maxX = planecenter.x + plane.size.x / 2;
-        for(int i = 0; i < numbersOfSpawners; i++)
-        {
-            float randomX = Random.Range(minX, maxX);
-            Vector3 SpawnAtPosition = new Vector3(randomX, planecenter.y, planecenter.z);
-            GameObject tempObject = new GameObject();
-            tempObject.transform.position = SpawnAtPosition;
-            tempObject.transform.rotation = Quaternion.identity;
-            Transform spawnedObject = Instantiate(SpawnerObject, SpawnAtPosition, Quaternion.identity).transform;
-            usedSpawnerLocations.Add(spawnedObject);
-            spawnerLocations.Add(spawnedObject);
-            Destroy(tempObject);
-        }
-    }*/
-
-    
+    } 
 }

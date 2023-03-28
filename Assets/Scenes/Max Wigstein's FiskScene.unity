@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carController: {fileID: 230121293}
+  throttle: 0
 --- !u!1001 &117075671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -712,6 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carController: {fileID: 230121293}
   maxSteering: -1
+  steerModifier: 0
 --- !u!1 &1004535181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +1156,10 @@ MonoBehaviour:
   - {fileID: 2206852426022253465, guid: de500f6b90f89bc4c87a6585b2dea01a, type: 3}
   - {fileID: 1937588542411740048, guid: a05072560c3476b4cb8dddf22f697392, type: 3}
   - {fileID: 5925960515861282153, guid: 2fb93ff3c1250a74ca5f53a6bc162675, type: 3}
+  fishesInGame: []
+  mainCamera: {fileID: 136216686}
+  worldBuilder: {fileID: 1610942606}
+  spawnPosition: {x: 0, y: 0, z: 0}
   mainCamera: {fileID: 136216686}
   worldBuilder: {fileID: 1610942606}
   forceAmount: 9
@@ -1161,6 +1167,10 @@ MonoBehaviour:
   upForce: 5
   difficultyAdjuster: 0
   bucketSpawnCount: 0
+  elapsedTime: 0
+  secondsElapsed: 0
+  fishScore: 0
+  isPlaying: 0
   fishScore: 0
 --- !u!114 &1610942609
 MonoBehaviour:
@@ -1179,6 +1189,9 @@ MonoBehaviour:
   - {fileID: 5882448671471983631, guid: b8cd161c3c5c62a438ab3cad2334450e, type: 3}
   - {fileID: 5882448671471983631, guid: fe60d3ce860ade849ae99dc497485cae, type: 3}
   - {fileID: 5882448671471983631, guid: 9a64344b0f560aa4f945ae642cb51c40, type: 3}
+  bucket: {fileID: 0}
+  bucketLocation: {fileID: 0}
+  destroyBucket: 0
 --- !u!1 &1731488071
 GameObject:
   m_ObjectHideFlags: 0

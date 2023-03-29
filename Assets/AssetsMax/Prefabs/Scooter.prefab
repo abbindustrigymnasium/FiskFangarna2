@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6171636736465286733}
   - component: {fileID: -8197704677120953548}
   - component: {fileID: 6044391065764555048}
+  - component: {fileID: 1616657282635067005}
   m_Layer: 0
   m_Name: Scooter
-  m_TagString: Untagged
+  m_TagString: scooter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080099183138151666}
-  m_LocalRotation: {x: -0.075387105, y: 0.0053164065, z: -0.009880619, w: 0.99709123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.40497515, y: 0, z: 3.034906}
   m_LocalScale: {x: 5.3, y: 5.2999997, z: 5.3}
   m_ConstrainProportionsScale: 0
@@ -133,3 +134,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1616657282635067005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080099183138151666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 1
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

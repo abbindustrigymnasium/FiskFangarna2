@@ -56,8 +56,8 @@ public class SpawnFishes : MonoBehaviour
     public void GenerateSpawnLocation()
     {
         
-        float minX = worldBuilder.planeCenter.x - 5;
-        float maxX = worldBuilder.planeCenter.x + 5;
+        float minX = worldBuilder.planeCenter.x - 2.5f;
+        float maxX = worldBuilder.planeCenter.x + 2.5f;
         
         float randomX = Random.Range(minX, maxX);
         
@@ -80,7 +80,18 @@ public class SpawnFishes : MonoBehaviour
         GameObject fish = Instantiate(fishes[randomFishId], spawnPosition + Vector3.up, Quaternion.identity);
         fishesInGame.Add(fish);
         Debug.Log("Kamera transform " + mainCamera.transform);
-        fish.transform.LookAt(mainCamera.transform);
+        fish.transform.LookAt(mainCamera.transform.position);
+        if (fish.gameObject.tag != "scooter" && fish.gameObject.name != "Al(Clone)")
+        {
+            fish.transform.Rotate(-90f, 45f, 0f);
+        }
+        else
+        {
+            fish.transform.Rotate(0, 45f, 0f);
+        }
+        
+
+        //fish.transform.LookAt(mainCamera.transform);
         //fish.transform.Rotate(0,-mainCamera.transform.rotation.y, 0);
         //fish.transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward, mainCamera.transform.rotation * Vector3.up);
         Rigidbody fishRb = fish.GetComponent<Rigidbody>();

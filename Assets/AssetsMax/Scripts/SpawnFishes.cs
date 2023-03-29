@@ -101,6 +101,7 @@ public class SpawnFishes : MonoBehaviour
         fishesInGame.RemoveAt(0);
         fishScore++;
         bucket.changeBucketPrefab();
+        Debug.Log(fishScore);
     }
 
     void IncreaseDifficulty()

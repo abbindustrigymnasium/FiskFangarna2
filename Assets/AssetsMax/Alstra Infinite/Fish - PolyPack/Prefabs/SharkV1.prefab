@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 45540169997415451}
   - component: {fileID: 865523096564909954}
   - component: {fileID: 4927593380931040667}
-  - component: {fileID: 6418329126732306420}
   m_Layer: 0
   m_Name: SharkV1
-  m_TagString: fish
+  m_TagString: scooter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,16 +153,3 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &6418329126732306420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5925960515861282153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd1896685341fd4991fb92f3660259f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: -1

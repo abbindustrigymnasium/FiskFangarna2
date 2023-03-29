@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -465411091628357396}
   m_Layer: 0
   m_Name: Al
-  m_TagString: Untagged
+  m_TagString: fish2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 3
+  outlineColor: {r: 1, g: 0.3150943, b: 0.9486531, a: 1}
+  outlineWidth: 1
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []

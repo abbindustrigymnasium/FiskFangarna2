@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: fed3ca9c6f5111d4ea1c05031a5c61fe
   - enabled: 1
     path: Assets/Scenes/Max Wigstein's FiskScene.unity
     guid: ba029fb369bc9ea4da7cc72623784ff2

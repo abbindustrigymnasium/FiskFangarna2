@@ -14,8 +14,6 @@ public class WorldBuilder : MonoBehaviour
     ARRaycastManager raycastManager;
     [SerializeField]
     GameObject floorPrefab;
-    [SerializeField]
-    GameObject car;
     public ARPlane plane;
     public Vector3 planeCenter;
     [SerializeField] float spawnDelayTime = 5f;

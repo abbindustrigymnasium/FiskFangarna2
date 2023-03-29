@@ -685,7 +685,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f1a110d32af21aa4d872c707dfcc6043, type: 2}
+  - {fileID: -3846018093981099296, guid: efc2d91f5aef5494d902e44808440100, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -890,7 +890,7 @@ MonoBehaviour:
   mainCamera: {fileID: 136216686}
   worldBuilder: {fileID: 1610942606}
   forceAmount: 5
-  destroyTime: 5
+  destroyTime: 2
   upForce: 5
   difficultyAdjuster: 0
   bucketSpawnCount: 0

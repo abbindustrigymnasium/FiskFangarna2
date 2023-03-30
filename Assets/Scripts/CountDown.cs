@@ -5,13 +5,11 @@ using TMPro;
 public class CountDown : MonoBehaviour
 {
     public GameObject gameOver;
-    Points points;
 
-    float currentTime = 0f;
+    public float currentTime = 0f;
     float startingTime = 120f;
 
     [SerializeField] TMP_Text timerDisplay;
-    [SerializeField] TMP_Text totalPoints;
 
     private void Start()
     {
@@ -20,12 +18,15 @@ public class CountDown : MonoBehaviour
 
     private void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
         timerDisplay.text = currentTime.ToString();
         if( currentTime <= 0)
         {
             gameOver.SetActive(true);
-            totalPoints.text = points.totalPoints.ToString();
+            currentTime = 0f;
+        }
+        else
+        {
+            currentTime -= 1 * Time.deltaTime;
         }
     }
 

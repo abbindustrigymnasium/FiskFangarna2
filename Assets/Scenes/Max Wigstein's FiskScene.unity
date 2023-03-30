@@ -405,6 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPoints: 0
   pointsDisplay: {fileID: 138204168}
+  totalEndPoints: {fileID: 398655522}
 --- !u!114 &138204168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1060,7 +1061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &580324374
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2641,7 +2642,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: {fileID: 580324373}
   timerDisplay: {fileID: 389891201}
-  totalPoints: {fileID: 398655522}
 --- !u!1 &1552858421
 GameObject:
   m_ObjectHideFlags: 0
@@ -3628,7 +3628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2081567119
 Transform:
   m_ObjectHideFlags: 0

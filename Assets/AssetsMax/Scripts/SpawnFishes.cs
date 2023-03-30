@@ -21,7 +21,7 @@ public class SpawnFishes : MonoBehaviour
     float elapsedTime;
     int secondsElapsed;
     public float fishScore = 0f;
-    bool isPlaying;
+    public bool isPlaying;
     // Start is called before the first frame update
 
     public SpawnFishes(WorldBuilder wb) => worldBuilder = wb;

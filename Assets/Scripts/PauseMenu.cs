@@ -3,10 +3,22 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] CountDown gameOver;
+
     public static bool isPaused = false;
 
     public GameObject pauseMenuUI;
     public GameObject gameUI;
+
+    private void Update()
+    {
+        if (gameOver.gameEnded)
+        { 
+            gameUI.SetActive(false);
+            pauseMenuUI.SetActive(false);
+            Time.timeScale = 0;
+        }
+    }
 
     public void pause()
     {
